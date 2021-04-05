@@ -423,13 +423,16 @@ open class EasyTipView: UIView {
     // MARK: - Rotation support -
     
     @objc func handleRotation() {
-        guard let sview = superview
+		// This method commented out to prevent brute redraw, which was causing lots of unwanted animations.
+		// Tooltips appear to rotate correctly without this code.
+		
+        /*guard let sview = superview
               , presentingView != nil else { return }
-        
+
         UIView.animate(withDuration: 0.3) {
             self.arrange(withinSuperview: sview)
             self.setNeedsDisplay()
-        }
+        }*/
     }
     
     // MARK: - Private methods -
